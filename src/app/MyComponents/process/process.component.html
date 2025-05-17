@@ -1,0 +1,36 @@
+<div class="section2" id ="what-we-do">
+    <h1>What We Do</h1>
+    <div class="what-we-do">
+    <div class="funding-card">
+        <h3>Get Funded & Then Engage With Us</h3>
+        <p><img src ="assets/tick.png"/> If you have initial traction and need capital, we help you secure funding.</p>
+        <p><img src ="assets/tick.png"/>Once funded, we assist in operations and growth.</p>
+    </div>
+    <div class="engage-card">
+        <h3>Engage With Us First, Gain Traction & Then Get Funded</h3>
+        <p><img src ="assets/tick.png"/>If you’re early-stage, we help with validation, traction, and refining the business model.</p>
+        <p><img src ="assets/tick.png"/>Once milestones are reached, we connect you with investors.</p>
+    </div>
+</div>
+</div>
+
+<div class="section3" id ="process">
+    <div class="process-text">
+        <h1>Our Processes</h1>
+        <p class="hide">From idea validation to scaling, we provide a custom roadmap designed around your startup's stage and needs.</p>
+        <div class="solution-list">
+            <ul>
+                <li *ngFor="let item of options" 
+                    [class.active]="selectedOption === item.image" 
+                    (click)="changeImage(item.image)">
+                    {{ item.name }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="scale">
+        <p class="show">From idea validation to scaling, we provide a custom roadmap designed around your startup's stage and needs.</p>
+        <img [src]="'assets/' + selectedOption" [alt]="selectedOption" id="displayedImage">
+    </div>
+</div>
+

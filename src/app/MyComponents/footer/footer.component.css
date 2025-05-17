@@ -1,0 +1,329 @@
+.section9 {
+    /* Shorter way to set left & right margins */
+    margin-top: 130px;
+   
+        position: relative;
+ /* Adjust padding for better spacing */
+
+
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin: 0 90px;
+    padding: 30px 90px;
+    z-index: 999;
+    position: absolute;
+    background-image: url('/assets/footer-img.jpeg'); /* Use absolute path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.text h2{
+    font-family: Sen;
+font-weight: 700;
+font-size: 48px;
+line-height: 64px;
+
+
+}
+.text p{
+    font-family: Sen;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+letter-spacing: -2%;
+
+}
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* Form box */
+.form-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+/* Input fields */
+.input-group {
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    background: linear-gradient(to right, #ff8008, #ff5400);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+.orange{
+    color: #F26722;
+}
+
+footer{
+    position: absolute;
+    background-color: black;
+    height: fit-content;
+    width: 100%;
+    top: 400px;
+    padding: 200px 90px 20px 90px;
+    z-index: 1;
+}
+.NAVBAR{
+
+    background: transparent !important;
+    /* Keep it over the background */
+    width: 100%; /* Stretch across the page */
+    z-index: 10; /* Ensure it appears above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.navbar-nav{
+    background: #181818;
+    padding: 0px 2px;
+    border-radius: 5px;
+    gap: 10px;
+    margin-left: auto;
+}
+.icons{
+        border-radius: 5px;
+    gap: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+        text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+    color: white;
+    font-family: "Sen", sans-serif;
+list-style: none;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: -2%;
+display: flex;
+text-align: center;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+}
+.icons .nav-link{
+    background-color: #605E5F;
+    padding: 8px;
+    border-radius: 10px;
+}
+.navbar-nav .nav-link {
+ 
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+    color: white;
+    font-family: "Sen", sans-serif;
+
+font-size: 16px;
+line-height: 100%;
+letter-spacing: -2%;
+
+}
+
+.btn{
+    border: none;
+    padding: 10px 20px;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #f8f8f8, #bdbdbd, #ffffff);
+    transition: all 0.3s ease-in-out;
+    margin-right: 90px;
+    font-family: "Sen", sans-serif;
+}
+.footer-bottom {
+    font-family: "Sen", sans-serif;
+    border-top: 1px solid #605E5F; 
+    margin-top: 10px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    margin: 10px auto 0;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.footer-bottom p{
+    margin: 20px 0px 20px 0px;
+}
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:980px){
+    .box{
+        margin: 0px 20px;
+    }
+}
+
+
+@media (max-width: 900px){
+.box{
+    margin: 0px 20px;
+}
+}
+@media (max-width:800px){
+    .box{
+        padding: 10px 20px;
+    }
+}
+@media (max-width:690px){
+    .box{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .text{
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    .container{
+        margin-top: 0px;
+        padding-top:0px;
+    }
+    footer{
+        top: 600px;
+        padding: 200px 20px 20px 20px;
+    }
+    .navbar-nav{
+        display: none;
+    }
+    .footer-bottom p{
+        font-size: 12px;
+        font-weight: 400;
+    }
+}
+
+@media(max-width:450px){
+    footer{
+        top: 700px;
+    }
+    .icons{
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}
+@media (max-width:390px){
+    footer{
+        top: 750px;
+    }
+    .icons{
+        font-size: 12px;
+        padding: 2px 7px;
+    }
+    .navbar-brand img{
+        size: 0.2rem;
+    }
+    .footer-bottom{
+        flex-direction: column;
+        margin-top: 0px;
+        line-height: 0.2px;
+    }
+    .text h2{
+        font-size: 35px;
+        line-height: 50px;
+    }
+    footer{
+        top: 600px;
+    }
+    
+}

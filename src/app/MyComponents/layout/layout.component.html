@@ -1,0 +1,68 @@
+<div class="landing-page">
+    <nav class="navbar navbar-expand-lg NAVBAR">
+        <div class="container-fluid">
+            <!-- Logo on the left -->
+            <a class="navbar-brand" href="#"><img src="assets/Logo.png" alt="MagmaScale Logo"/></a>
+
+            <!-- Toggle Button (Hamburger) -->
+            <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="mobile-menu" [class.active]="navbarOpen">
+                <!-- Centered Navbar Links -->
+                <ul class="navbar-nav"> 
+                    <li class="nav-item"><a (click)="scrollToSection('what-we-do'); navbarOpen = false" class="nav-link">What We Do</a></li>
+                    <li class="nav-item"><a (click)="scrollToSection('process'); navbarOpen = false" class="nav-link">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pitch Den</a></li>
+                    <li class="nav-item"><a (click)="scrollToSection('process'); navbarOpen = false" class="nav-link">For Investors</a></li>
+                </ul>
+
+                <!-- Right side items -->
+                <div class="mobile-right-items">
+                    <!-- Contact Us Button -->
+                    <button type="button" class="btn contact-btn" (click)="scrollToSection('contact-form')">Contact Us</button>
+
+                    <!-- User Profile -->
+                    <div class="user-profile" *ngIf="authService.user">
+                        <div class="profile-icon" (click)="toggleDropdown($event)">
+                            <img [src]="authService.user.profilePic || 'assets/default-avatar.png'" alt="Profile" class="avatar">
+                            <span class="user-name">{{ authService.user.displayName }}</span>
+                        </div>
+                        <div class="dropdown-menu" *ngIf="showDropdown">
+                            <button (click)="logout()" class="logout-btn">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <div class="text">
+        <div class="text1">
+            <h3>SCALING STARTUPS</h3>
+            <h1>From Initial Funding to <span class="gradient-text">Growth</span></h1>
+            <p>We help startups secure funding, build traction, and scale with expert execution.</p>
+            <button class="btn" (click)="scrollToSection('apply-form')">Apply Now</button>
+        </div>
+        
+        <div class="text2"></div>
+    </div>
+    <div class="img-container">
+    <img class="people" src = "assets/meeting.png"/>
+</div>
+</div>
+
+<app-process #processSection></app-process>
+<app-come-on-board></app-come-on-board>
+<app-discover></app-discover>
+<app-approach></app-approach>
+<app-worldwide></app-worldwide>
+<app-for-investors></app-for-investors>
+<app-founder-investors></app-founder-investors>
+<app-footer></app-footer>
+

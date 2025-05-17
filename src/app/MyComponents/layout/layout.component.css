@@ -1,0 +1,549 @@
+.landing-page {
+    background-image: url(/assets/BG.png); /* Correct path for Angular */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Ensure section has height */
+    width: 100%;
+}
+
+.NAVBAR{
+    padding-top: 30px;
+    background: transparent !important;
+    /* Keep it over the background */
+    width: 100%; /* Stretch across the page */
+    z-index: 10; /* Ensure it appears above other elements */
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-nav{
+    background: #181818;
+    padding: 0px 2px;
+    border-radius: 5px;
+    gap: 10px;
+}
+.navbar-nav .nav-link {
+ 
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+    color: white;
+    font-family: "Sen", sans-serif;
+
+font-size: 16px;
+line-height: 100%;
+letter-spacing: -2%;
+
+}
+.navbar-brand{
+    margin-left:90px;
+}
+.btn{
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #f8f8f8, #bdbdbd, #ffffff);
+    transition: all 0.3s ease-in-out;
+    margin-right: 90px;
+    font-family: "Sen", sans-serif;
+}
+
+
+.text{
+    width: 100%;
+    margin-top: 90px;
+    
+}
+.text1{
+    width: 45%;
+    margin-left: 90px;
+    color:white;
+}
+.text2{
+    width: 50%;
+}
+.text1 h1{
+    font-weight: bold;
+    font-family: Sen;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2%;
+    margin-bottom: 15px;
+
+}
+.text1 h3{
+    font-family: Sen;
+font-weight: 500;
+font-size: 24px;
+line-height: 100%;
+letter-spacing: 0%;
+margin-bottom: 20px;
+
+}
+.text1 p{
+    font-family: Sen;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+letter-spacing: -2%;
+margin-bottom: 20px;
+
+}
+
+.gradient-text {
+    background: linear-gradient(180deg, #D95D1A, #622A07);
+    background-clip: text; /* Standard property */
+    -webkit-background-clip: text; /* For WebKit browsers */
+    -webkit-text-fill-color: transparent;
+}
+.img-container {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;  /* Centers vertically */
+    height: 100vh;  /* Makes sure it's centered in full viewport height */
+}
+
+.img-container img {
+    max-width: 100%; /* Ensures responsiveness */
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure navbar toggler (hamburger) is on the rightmost */
+.navbar-toggler {
+    border: none;
+    background: none;
+    color: white !important; /* Make the icon white */
+    position: absolute;
+    right: 10px;
+}
+
+/* Ensure the toggler icon is white */
+.navbar-toggler-icon {
+    filter: invert(1); /* Makes the default Bootstrap icon white */
+}
+
+/* Move Contact Us button to the left of the toggler */
+.contact-btn {
+    margin-right: 50px; /* Adds spacing so the button doesn't overlap */
+}
+
+/* Custom styles for responsiveness */
+@media (max-width: 900px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+    }
+
+    .navbar-expand-lg .navbar-toggler {
+        display: block !important;
+    }
+}
+
+@media (min-width: 901px) {
+
+
+    .navbar-expand-lg .navbar-toggler {
+        display: none !important;
+    }
+}
+
+@media(max-width:980px){
+    .navbar-brand{
+        margin-left:40px;
+        margin-right: 40px;
+    }
+    .text1{
+        width: 60%;
+        margin-left: 40px;
+        color:white;
+        margin-right: 40px;
+        
+    }
+    .btn{
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 690px){
+    .navbar-brand{
+        margin-left:20px;
+        margin-right: 20px;
+    }
+     .contact-btn {
+            margin-right: 70px; /* Adds spacing so the button doesn't overlap */
+    }
+    .text1{
+        width: 90%;
+        margin-left: 20px;
+        color:white;
+        margin-right: 20px;
+        
+    }
+    .text1 h1{
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+@media (max-width: 600px){
+    .navbar-brand{
+        margin-left:20px;
+       
+    }
+    .text1{
+        width: 90%;
+        margin-left: 20px;
+        color:white;
+      
+    }
+    .text1 h1{
+        font-size: 45px;
+        line-height: 50px;
+    }
+}
+@media (max-width: 490px){
+    .NAVBAR{
+        padding-top: 40px;
+    }
+    .landing-page {
+        background-image: url(/assets/mobile-bg.png); /* Correct path for Angular */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 870px;
+        width: 100%;
+    }
+    .navbar-brand{
+        margin-left:20px;
+        margin-right: 20px;
+    }
+    .text1{
+        width: 90%;
+        margin-left: 20px;
+        margin-right: 20px;
+        color:white;
+     
+    }
+    .text1 h1{
+        font-size: 38px;
+        line-height: 45px;
+    }
+    .btn{
+        border: none;
+        padding: 5px 10px;
+        font-size: 14px;
+        font-weight: bold;
+        color: black;
+        border-radius: 5px;
+        background: linear-gradient(145deg, #f8f8f8, #bdbdbd, #ffffff);
+        transition: all 0.3s ease-in-out;
+        margin-right: 60px;
+        font-family: "Sen", sans-serif;
+    }
+    .img-container{
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        height: fit-content;
+        margin-top: 330px;
+
+    }
+    .people{
+        display: flex;
+
+    }
+}
+
+
+@media (max-width:420px){
+    .text{
+        margin-top: 80px;
+    }
+    .text1 .btn {
+        font-size: 18px;
+        padding: 8px 16px;
+        margin-top: 15px;
+    }
+    .text1 p{
+        font-size: 16px;
+    }
+    
+}
+
+
+@media (max-width:390px){
+    .text1 h1{
+        font-size: 35px;
+    }
+}
+
+.user-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  background: #181818;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-icon:hover {
+  background: #2a2a2a;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+}
+
+.user-name {
+  color: white;
+  font-size: 14px;
+  font-family: "Sen", sans-serif;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 120px;
+  display: block !important;
+}
+
+.logout-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background: #f5f5f5;
+}
+
+/* Mobile styles */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #181818;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    z-index: 1000;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-nav {
+    margin-bottom: 1rem;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .contact-btn {
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .user-profile {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .profile-icon {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: none;
+    border: none;
+    background: #2a2a2a;
+  }
+
+  .logout-btn {
+    color: white;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .logout-btn:hover {
+    background: #333;
+  }
+
+  .navbar-toggler {
+    z-index: 1001;
+  }
+}
+
+/* Add these styles to your existing CSS */
+.navbar-collapse {
+  transition: all 0.3s ease;
+}
+
+.navbar-collapse.show {
+  display: block !important;
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .mobile-menu {
+    position: fixed;
+    top: 80px; /* Adjust based on your navbar height */
+    left: 0;
+    right: 0;
+    background: #181818;
+    padding: 20px;
+    z-index: 1000;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+  }
+
+  .navbar-nav {
+    margin-bottom: 20px;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+
+  .nav-link {
+    color: white !important;
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+  }
+
+  .mobile-right-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  .user-profile {
+    width: 100%;
+  }
+
+  .profile-icon {
+    width: 100%;
+    justify-content: center;
+    background: #2a2a2a;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    background: #2a2a2a;
+    border: none;
+  }
+
+  .logout-btn {
+    color: white;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .logout-btn:hover {
+    background: #333;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .mobile-menu {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-nav {
+    display: flex;
+    gap: 10px;
+  }
+
+  .mobile-right-items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+

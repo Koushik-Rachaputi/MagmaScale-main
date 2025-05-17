@@ -1,0 +1,189 @@
+<div class="section4">
+    <div class="on-board-text">
+        <h1>How Do I Come On-Board?</h1>
+        <p>we collaborate with founders who are ready to take their ideas to the next level. Whether you're an early-stage startup seeking traction or a growing business in need of funding and hands-on support, our team is here to guide you. If you have a scalable idea and the ambition to build, we'll work closely with you to validate your business, secure capital, and accelerate growth.</p>
+    
+        <h4><img src="assets/tick2.png"/>Startups with scalable ideas seeking hands-on execution support. </h4>
+        <h4><img src="assets/tick2.png"/>Early-stage founders who need funding and traction to bring their vision to life.</h4>
+    
+        <img class="person" src ="assets/person.png"/>
+    </div>
+    <div class="on-board-img">  
+        <div class="form-container" id="apply-form">
+            <h2>Apply Now</h2>
+            <div *ngIf="submitSuccess" class="success-message">
+                Form submitted successfully!
+            </div>
+            <div *ngIf="submitError" class="error-message">
+                {{ submitError }}
+            </div>
+            <div class="form-content">
+                <div class="form-section">
+                    <h3>Select Your Role</h3>
+                    <select [(ngModel)]="formData.role">
+                        <option value="">Select role here</option>
+                        <option value="founder">Founder</option>
+                        <option value="investor">Investor</option>
+                        <option value="developer">Developer</option>
+                    </select>
+                </div>
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <h6>Full Name</h6>
+                    <input type="text" [(ngModel)]="formData.fullName" placeholder="Full Name">
+                    <h6>Phone Number</h6>
+                    <div class="num">
+                        <div class="phone-input">
+                            <input type="text" value="+91" disabled>
+                        </div>
+                        <div class="num-input">
+                            <input type="tel" [(ngModel)]="formData.phoneNumber" placeholder="Number">
+                        </div>
+                    </div>
+                    <h6>Email Address</h6>
+                    <input type="email" [(ngModel)]="formData.emailAddress" placeholder="Email Address">
+                </div>
+        
+                <!-- Location -->
+                <div class="form-section">
+                    <h3>Location</h3>
+                    <div class="gform">
+                        <div class="g1">
+                            <h6>Country</h6>
+                            <input type="text" [(ngModel)]="formData.country" placeholder="Country">
+                        </div>
+                        <div class="g2">
+                            <h6>City</h6>
+                            <input type="text" [(ngModel)]="formData.city" placeholder="City">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Startup Information -->
+                <div class="form-section">
+                    <h3>Startup Information</h3>
+                    <h6>Startup Name</h6>
+                    <input type="text" [(ngModel)]="formData.startupName" placeholder="Enter Startup Name">
+                    <h6>Website URL</h6>
+                    <input type="text" [(ngModel)]="formData.websiteURL" placeholder="Website URL">
+                    <div class="gform">
+                        <div class="g1">
+                            <h6>Current Stage of Your Startup</h6>
+                            <input type="text" [(ngModel)]="formData.currentState" placeholder="MVP">
+                        </div>
+                        <div class="g2">
+                            <h6>What Are You Looking For?</h6>
+                            <input type="text" [(ngModel)]="formData.lookingFor" placeholder="MVP Development">
+                        </div>
+                    </div>
+                    <h6>Company LinkedIn Profile</h6>
+                    <input type="text" [(ngModel)]="formData.companyLinkedIn" placeholder="Company LinkedIn Profile">
+                    <h6>Founder's LinkedIn Profile</h6>
+                    <input type="text" [(ngModel)]="formData.foundersLinkedIn" placeholder="Founder's LinkedIn Profile">
+                </div>
+        
+                <!-- Industry / Sector -->
+                <div class="form-section">
+                    <h3>Industry / Sector</h3>
+                    <h6>Search and select industry</h6>
+                    <input type="text" [(ngModel)]="formData.industry" placeholder="Search and select industry">
+                </div>
+        
+                <!-- Business Details -->
+                <div class="form-section">
+                    <h3>Business Details</h3>
+                    <h6>What Problem Does Your Startup Solve?</h6>
+                    <input [(ngModel)]="formData.problemSolved" placeholder="Describe here">
+                    <h6>Describe Your Startup</h6>
+                    <input [(ngModel)]="formData.startupDescription" placeholder="Describe here">
+                    <h6>Target Market / Audience</h6>
+                    <input [(ngModel)]="formData.targetMarket" placeholder="Target Market / Audience">
+                    <h6>Number of Customers</h6>
+                    <input type="number" [(ngModel)]="formData.numberOfCustomers" placeholder="Number of Customers" min="0">
+                </div>
+        
+                <!-- Revenue Details -->
+                <div class="form-section">
+                    <h3>Revenue Details</h3>
+                    <div class="gform">
+                        <div class="g1">
+                            <h6>Currency</h6>
+                            <input type="text" [(ngModel)]="formData.revenueCurrency" placeholder="Select Currency">
+                        </div>
+                        <div class="g2">
+                            <h6>Unit</h6>
+                            <input type="number" [(ngModel)]="formData.revenueAmount" placeholder="Select Unit" min="0">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Funding Details -->
+                <div class="form-section">
+                    <h3>Funding Details</h3>
+                    <p>Have you raised funding before?</p>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" [(ngModel)]="formData.raisedFunding" [value]="'false'">
+                            <span class="custom-radio"></span>
+                            No
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" [(ngModel)]="formData.raisedFunding" [value]="'true'">
+                            <span class="custom-radio"></span>
+                            Yes
+                        </label>
+                    </div>
+                    <div class="gform">
+                        <div class="g1">
+                            <h6>Currency</h6>
+                            <input type="text" [(ngModel)]="formData.fundingCurrency" placeholder="Select Currency">
+                        </div>
+                        <div class="g2">
+                            <h6>Unit</h6>
+                            <input type="number" [(ngModel)]="formData.fundingAmount" placeholder="Select Unit" min="0">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Supporting Documents -->
+                <div class="form-section">
+                    <h3>Supporting Documents</h3>
+                    <div class="upload-container">
+                        <label for="fileInput" class="upload-box">
+                          <i class="fa-solid fa-upload"></i>
+                          <p>Max file size: 25MB, PDF or PPT only</p>
+                          <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".pdf,.ppt,.pptx" hidden />
+                        </label>
+                      </div>
+                </div>
+        
+                <!-- How Did You Know? -->
+                <div class="form-section">
+                    <h3>How Did You Know About MagmaScale?</h3>
+                    <h6>How Did You Get to Know About MagmaScale?</h6>
+                    <input type="text" [(ngModel)]="formData.heardFrom" placeholder="LinkedIn">
+                </div>
+        
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3>Additional Information</h3>
+                    <h6>Is there anything else you'd like us to know about your startup?</h6>
+                    <textarea [(ngModel)]="formData.additionalInfo" placeholder="Describe here"></textarea>
+                </div>
+        
+                <!-- Confirmation -->
+                <div class="confirmation">
+                    <input type="checkbox" id="confirm" class="in-confirm" required>
+                    <label for="confirm">
+                        I confirm that the information provided is accurate.
+                    </label>
+                </div>
+            </div>
+        
+            <button class="apply-btn" (click)="onSubmit()" [disabled]="isSubmitting">
+                {{ isSubmitting ? 'Submitting...' : 'Apply Now' }}
+            </button>
+        </div>
+    </div>
+</div>

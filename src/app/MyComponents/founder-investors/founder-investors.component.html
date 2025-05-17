@@ -1,0 +1,16 @@
+<div class="section8">
+    <div class="heading">
+        <h2>What Founders & Investors Say</h2>
+        <p>We believe that every startup is unique, and success requires more than just capital. Our three-pronged approach ensures sustainable growth</p>
+    </div>
+    <div class="testimonial-container" #scrollContainer>
+        <div class="testimonial" *ngFor="let testimonial of testimonials">
+          <img [src]="testimonial.image" alt="User">
+          <p>{{ testimonial.text }}</p>
+          <h4>{{ testimonial.name }}</h4>
+          <span>{{ testimonial.role }}</span>
+        </div>
+      </div>
+      
+          
+</div>
