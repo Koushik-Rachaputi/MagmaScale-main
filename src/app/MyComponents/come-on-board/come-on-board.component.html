@@ -17,6 +17,16 @@
             <div *ngIf="submitError" class="error-message">
                 {{ submitError }}
             </div>
+            <!-- File upload success notification -->
+            <div *ngIf="fileUploadSuccess" class="file-success-notification">
+                <i class="fa-solid fa-check-circle"></i>
+                File uploaded successfully!
+            </div>
+            <!-- File upload error notification -->
+            <div *ngIf="fileUploadError" class="file-error-notification">
+                <i class="fa-solid fa-exclamation-circle"></i>
+                {{ fileUploadError }}
+            </div>
             <!-- Login overlay moved outside form-content -->
             <div class="login-overlay" *ngIf="!authService.user">
                 <div class="login-content">
@@ -157,19 +167,28 @@
                 <!-- Supporting Documents -->
                 <div class="form-section">
                     <h3>Supporting Documents</h3>
-                    <div class="upload-container">
+                    <div class="upload-container" 
+                         (dragover)="onDragOver($event)"
+                         (dragleave)="onDragLeave($event)"
+                         (drop)="onDrop($event)"
+                         [class.drag-over]="isDragging">
                         <label for="fileInput" class="upload-box">
                           <i class="fa-solid fa-upload"></i>
-                          <p>Max file size: 30MB, PDF or PPT only</p>
+                          <p>Drag & drop your file here or click to browse</p>
+                          <p class="file-types">Supported formats: PDF, PPT (max 30MB)</p>
                           <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".pdf,.ppt,.pptx" hidden />
                         </label>
                         <div *ngIf="selectedFile" class="file-info">
-                            <p class="file-name">{{ selectedFile.name }}</p>
-                            <p class="file-size">{{ (selectedFile.size / (1024 * 1024)).toFixed(2) }} MB</p>
-                            <button class="remove-file" (click)="removeFile()">×</button>
-                        </div>
-                        <div *ngIf="fileUploadSuccess" class="file-success">
-                            File uploaded successfully!
+                            <div class="file-icon">
+                                <i class="fa-solid" [ngClass]="{'fa-file-pdf': selectedFile.type === 'application/pdf', 'fa-file-powerpoint': selectedFile.type.includes('powerpoint')}"></i>
+                            </div>
+                            <div class="file-details">
+                                <p class="file-name">{{ selectedFile.name }}</p>
+                                <p class="file-size">{{ (selectedFile.size / (1024 * 1024)).toFixed(2) }} MB</p>
+                            </div>
+                            <button class="remove-file" (click)="removeFile()" title="Remove file">
+                                <i class="fa-solid fa-times"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

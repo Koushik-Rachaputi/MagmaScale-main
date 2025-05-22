@@ -45,6 +45,8 @@ export class ComeOnBoardComponent implements OnInit {
   submitError: string | null = null;
   submitSuccess = false;
   fileUploadSuccess = false;
+  fileUploadError: string | null = null;
+  isDragging = false;
 
   constructor(
     private apiService: ApiService,
@@ -78,26 +80,60 @@ export class ComeOnBoardComponent implements OnInit {
     }
   }
 
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = true;
+  }
+
+  onDragLeave(event: DragEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = false;
+  }
+
+  onDrop(event: DragEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = false;
+
+    const files = event.dataTransfer?.files;
+    if (files && files.length > 0) {
+      const file = files[0];
+      this.validateAndSetFile(file);
+    }
+  }
+
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
-      const allowedTypes = ['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation'];
-      if (allowedTypes.includes(file.type) && file.size <= 30 * 1024 * 1024) {
-        this.selectedFile = file;
-        this.fileUploadSuccess = true;
-        // Hide success message after 3 seconds
-        setTimeout(() => {
-          this.fileUploadSuccess = false;
-        }, 3000);
-      } else {
-        alert('Invalid file! Only PDF or PPT files under 30MB are allowed.');
-      }
+      this.validateAndSetFile(file);
+    }
+  }
+
+  private validateAndSetFile(file: File) {
+    const allowedTypes = ['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation'];
+    if (allowedTypes.includes(file.type) && file.size <= 30 * 1024 * 1024) {
+      this.selectedFile = file;
+      this.fileUploadSuccess = true;
+      this.fileUploadError = null;
+      // Hide success message after 3 seconds
+      setTimeout(() => {
+        this.fileUploadSuccess = false;
+      }, 3000);
+    } else {
+      this.fileUploadError = 'Invalid file! Only PDF or PPT files under 30MB are allowed.';
+      // Hide error message after 5 seconds
+      setTimeout(() => {
+        this.fileUploadError = null;
+      }, 5000);
     }
   }
 
   removeFile() {
     this.selectedFile = null;
     this.fileUploadSuccess = false;
+    this.fileUploadError = null;
   }
 
   onSubmit() {
