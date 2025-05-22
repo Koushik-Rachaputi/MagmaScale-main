@@ -47,10 +47,14 @@ export class ComeOnBoardComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
+
+  login() {
+    window.location.href = 'http://localhost:3000/auth/google';
+  }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {

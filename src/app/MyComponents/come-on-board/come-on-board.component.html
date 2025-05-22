@@ -17,7 +17,15 @@
             <div *ngIf="submitError" class="error-message">
                 {{ submitError }}
             </div>
-            <div class="form-content">
+            <!-- Login overlay moved outside form-content -->
+            <div class="login-overlay" *ngIf="!authService.user">
+                <div class="login-content">
+                    <h3>Please Login to Continue</h3>
+                    <p>You need to be logged in to fill out this form</p>
+                    <button class="login-btn" (click)="login()">Login with Google</button>
+                </div>
+            </div>
+            <div class="form-content" [class.blurred]="!authService.user">
                 <div class="form-section">
                     <h3>Select Your Role</h3>
                     <select [(ngModel)]="formData.role">
