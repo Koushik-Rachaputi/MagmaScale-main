@@ -44,6 +44,7 @@ export class ComeOnBoardComponent implements OnInit {
   isSubmitting = false;
   submitError: string | null = null;
   submitSuccess = false;
+  fileUploadSuccess = false;
 
   constructor(
     private apiService: ApiService,
@@ -81,12 +82,22 @@ export class ComeOnBoardComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       const allowedTypes = ['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation'];
-      if (allowedTypes.includes(file.type) && file.size <= 25 * 1024 * 1024) {
+      if (allowedTypes.includes(file.type) && file.size <= 30 * 1024 * 1024) {
         this.selectedFile = file;
+        this.fileUploadSuccess = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.fileUploadSuccess = false;
+        }, 3000);
       } else {
-        alert('Invalid file! Only PDF or PPT files under 25MB are allowed.');
+        alert('Invalid file! Only PDF or PPT files under 30MB are allowed.');
       }
     }
+  }
+
+  removeFile() {
+    this.selectedFile = null;
+    this.fileUploadSuccess = false;
   }
 
   onSubmit() {

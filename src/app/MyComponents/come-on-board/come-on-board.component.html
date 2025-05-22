@@ -160,10 +160,18 @@
                     <div class="upload-container">
                         <label for="fileInput" class="upload-box">
                           <i class="fa-solid fa-upload"></i>
-                          <p>Max file size: 25MB, PDF or PPT only</p>
+                          <p>Max file size: 30MB, PDF or PPT only</p>
                           <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".pdf,.ppt,.pptx" hidden />
                         </label>
-                      </div>
+                        <div *ngIf="selectedFile" class="file-info">
+                            <p class="file-name">{{ selectedFile.name }}</p>
+                            <p class="file-size">{{ (selectedFile.size / (1024 * 1024)).toFixed(2) }} MB</p>
+                            <button class="remove-file" (click)="removeFile()">×</button>
+                        </div>
+                        <div *ngIf="fileUploadSuccess" class="file-success">
+                            File uploaded successfully!
+                        </div>
+                    </div>
                 </div>
         
                 <!-- How Did You Know? -->
