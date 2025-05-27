@@ -37,7 +37,8 @@ export class ComeOnBoardComponent implements OnInit {
     fundingCurrency: '',
     fundingAmount: '',
     heardFrom: '',
-    additionalInfo: ''
+    additionalInfo: '',
+    pitchDeck: ''
   };
   
   selectedFile: File | null = null;
@@ -216,7 +217,8 @@ export class ComeOnBoardComponent implements OnInit {
           fundingCurrency: '',
           fundingAmount: '',
           heardFrom: '',
-          additionalInfo: ''
+          additionalInfo: '',
+          pitchDeck: ''
         };
         this.selectedFile = null;
       },
