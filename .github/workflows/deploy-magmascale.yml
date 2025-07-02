@@ -1,0 +1,41 @@
+name: 🚀 Deploy MagmaScale Frontend to DigitalOcean Droplet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: 🔄 Deploy to Droplet
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Set Up SSH Access
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.DROPLET_SSH_KEY }}
+
+      - name: 📦 Sync Files to Droplet via rsync
+        run: |
+          ssh -o StrictHostKeyChecking=no root@64.227.178.201 'mkdir -p /root/magmascale-main'
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./ root@64.227.178.201:/root/magmascale-main/
+
+      - name: 🐳 Build & Run Docker Container on Droplet
+        run: |
+          ssh -o StrictHostKeyChecking=no root@64.227.178.201 << 'EOF'
+            cd /root/magmascale-main
+
+            echo "🛑 Stopping existing container (if any)..."
+            docker stop magmascale-main || true
+            docker rm magmascale-main || true
+
+            echo "🔧 Building Docker image..."
+            docker build -t magmascale-main:latest .
+
+            echo "🚀 Running container on port 8080..."
+            docker run -d --name magmascale-main -p 8080:80 magmascale-main:latest
+          EOF
