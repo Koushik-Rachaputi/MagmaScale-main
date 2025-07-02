@@ -30,6 +30,6 @@ jobs:
             cd /root/magmascale-main && \
             docker stop magmascale-main || true && \
             docker rm magmascale-main || true && \
-            docker build -t magmascale-main:latest . && \
+            docker build --no-cache -t magmascale-main:latest . && \
             docker run -d --name magmascale-main -p 8080:4000 magmascale-main:latest
           '
