@@ -26,16 +26,10 @@ jobs:
 
       - name: 🐳 Build & Run Docker Container on Droplet
         run: |
-          ssh -o StrictHostKeyChecking=no root@64.227.178.201 << 'EOF'
-            cd /root/magmascale-main
-
-            echo "🛑 Stopping existing container (if any)..."
-            docker stop magmascale-main || true
-            docker rm magmascale-main || true
-
-            echo "🔧 Building Docker image..."
-            docker build -t magmascale-main:latest .
-
-            echo "🚀 Running container on port 8080..."
-            docker run -d --name magmascale-main -p 8080:80 magmascale-main:latest
-          EOF
+          ssh -o StrictHostKeyChecking=no root@64.227.178.201 '
+            cd /root/magmascale-main && \
+            docker stop magmascale-main || true && \
+            docker rm magmascale-main || true && \
+            docker build -t magmascale-main:latest . && \
+            docker run -d --name magmascale-main -p 8080:4000 magmascale-main:latest
+          '
