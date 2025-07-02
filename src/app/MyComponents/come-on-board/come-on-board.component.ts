@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-come-on-board',
@@ -57,7 +58,7 @@ export class ComeOnBoardComponent implements OnInit {
   ) {}
 
   login() {
-    window.location.href = 'http://localhost:3000/auth/google';
+    window.location.href = `${environment.backendUrl}/auth/google`;
   }
 
   ngOnInit() {
@@ -147,7 +148,7 @@ export class ComeOnBoardComponent implements OnInit {
         localStorage.setItem('pendingFormData', JSON.stringify(this.formData));
       }
       // Redirect to Google login
-      window.location.href = 'http://localhost:3000/auth/google';
+      window.location.href = `${environment.backendUrl}/auth/google`;
       return;
     }
 

@@ -1,10 +1,12 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private backendUrl = 'http://localhost:3000';
+  private backendUrl = environment.backendUrl;
   user: any = null;
 
   constructor(

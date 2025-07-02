@@ -12,6 +12,7 @@ import { ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-layout',
@@ -49,7 +50,7 @@ export class LayoutComponent {
   }
 
   logout() {
-    this.http.get('http://localhost:3000/auth/logout', { withCredentials: true })
+    this.http.get(`${environment.backendUrl}/auth/logout`, { withCredentials: true })
       .subscribe({
         next: () => {
           this.authService.clearUser();
